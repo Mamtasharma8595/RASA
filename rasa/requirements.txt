@@ -1,0 +1,31 @@
+# Core Rasa and its dependencies
+rasa
+rasa[spacy]
+rasa[transformers]
+rasa-sdk
+
+# NLP and ML libraries
+spacy
+transformers
+tensorflow
+tensorflow-addons
+torch
+scikit-learn
+matplotlib
+
+# Data manipulation and analysis
+pandas
+statsmodels
+numpy
+
+# Utility libraries
+tabulate
+requests
+mysql-connector-python
+fuzzywuzzy
+python-levenshtein
+apscheduler
+python-dateutil
+
+# Streamlit for web UI
+streamlit

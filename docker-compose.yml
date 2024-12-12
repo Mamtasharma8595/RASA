@@ -1,0 +1,61 @@
+
+version: '3.9'
+services:
+  rasa:
+    build:
+      # context: .
+      # dockerfile: Dockerfile
+      context: ./rasa
+      dockerfile: Dockerfile.rasa
+    ports:
+      - "5005:5005"
+    volumes:
+      - ./rasa:/app
+      # - ./models:/app/models
+      # - ./data:/app/data
+      # - ./config.yml:/app/config.yml
+      # - ./domain.yml:/app/domain.yml
+      # - ./credentials.yml:/app/credentials.yml
+      # - ./endpoints.yml:/app/endpoints.yml
+      
+    # depends_on:
+    #   - actionsc    
+    command:  rasa run --enable-api 
+    
+  actions:
+    build:
+      context: ./rasa
+      dockerfile: Dockerfile.actions
+    volumes:
+      - ./actions:/app/actions
+    ports:
+      - "5055:5055"
+    command:  rasa run actions
+    
+  flask:
+    build:
+      context: ./flask
+      dockerfile: Dockerfile.flask
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./flask:/app
+    
+    depends_on:
+      - rasa
+      - actions
+  streamlit:
+    build:
+      context: ./streamlit
+      dockerfile: Dockerfile.streamlit
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./streamlit:/app
+    
+    depends_on:
+      - rasa
+      - flask
+
+    
+  
