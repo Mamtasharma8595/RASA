@@ -1,8 +1,8 @@
-#Running Rasa with Flask and Streamlit
+# Running Rasa with Flask and Streamlit
 
 This guide provides step-by-step instructions to run a chatbot application using Rasa, Flask, and Streamlit. The setup integrates Rasa for Natural Language Processing (NLP), Flask as the API backend, and Streamlit for the user interface.
 
-##Prerequisites
+## Prerequisites
 
 Ensure the following tools are installed on your system:
 
