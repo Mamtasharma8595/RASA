@@ -1,31 +1,33 @@
 # Core Rasa and its dependencies
-rasa
+rasa==3.6.20
 rasa[spacy]
 rasa[transformers]
-rasa-sdk
+rasa-sdk==3.6.2
 
 # NLP and ML libraries
-spacy
-transformers
-tensorflow
-tensorflow-addons
-torch
-scikit-learn
-matplotlib
+spacy==3.7.6
+transformers==4.44.2
+tensorflow==2.10.0
+tensorflow-addons==0.17.0
+scikit-learn==1.1.3
+matplotlib==3.5.3
 
 # Data manipulation and analysis
-pandas
-statsmodels
-numpy
-
+pandas==2.2.2
+statsmodels==0.14.4
+numpy==1.26.4
+re
+logging
 # Utility libraries
-tabulate
-requests
-mysql-connector-python
-fuzzywuzzy
-python-levenshtein
-apscheduler
-python-dateutil
+python-levenshtein==0.20.9
+tabulate==0.9.0
+requests==2.32.3
+mysql-connector-python==9.1.0
+fuzzywuzzy==0.18.0
+apscheduler==3.9.1
+python-dateutil==2.8.2
 
 # Streamlit for web UI
-streamlit
+streamlit==1.40.2
+
+flask==3.0.0
