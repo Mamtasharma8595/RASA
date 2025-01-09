@@ -3125,6 +3125,9 @@ class ActionGetActiveAndInactivePlans(Action):
             inactive_plans = list(set(past_plans) - set(active_plans))
             plans_count = len(active_plans)
             inactive_plans_count = len(inactive_plans)
+            active_plans.sort()
+            inactive_plans.sort()
+
             # Generate response
             if plans_count == 0 and inactive_plans_count == 0:
                 logging.info("No plans found for the specified criteria.")
@@ -3167,59 +3170,39 @@ class ActionGetActiveAndInactiveCountries(Action):
         try:
         #     
             user_message = tracker.latest_message.get('text')
-            
-
-            # Ensure 'PurchaseDate' can be converted to datetime
-            try:
-                df['PurchaseDate'] = pd.to_datetime(df['PurchaseDate'])
-            except Exception as e:
-                logging.error(f"Date parsing error: {e}")
+            last_n_months = extract_last_n_months(user_message)
+            extracted_countries = extract_country_from_text(user_message)
+            if not extracted_countries:
                 response_message = {
-                    "text": "Error parsing purchase dates. Please check the date format."
+                    "text": "Sorry, I couldn't identify any country in your message."
                 }
                 dispatcher.utter_message(json_message=response_message)
                 return []
+            country = extracted_countries[0]
 
-            # Get the current year dynamically
-            try:
-                current_year = datetime.now().year
-            except Exception as e:
-                logging.error(f"Error fetching current year: {e}")
-                response_message = {
-                    "text": "Could not retrieve the current year."
-                }
-                dispatcher.utter_message(json_message=response_message)
-                return []
-            end_date = datetime.now()
-            start_date = end_date - timedelta(days=6 * 30)
-
-            # Identify active and inactive countries
-            active_countries_last_6_months = df[(df['PurchaseDate'] >= start_date) & (df['PurchaseDate'] <= end_date)]['countryname'].unique()
-            past_countries = df[df['PurchaseDate'] < start_date]['countryname'].unique()
-            active_countries = list(active_countries_last_6_months)
-            inactive_countries = list(set(past_countries) - set(active_countries))
-            countries_count = len(active_countries)
-            inactive_countries_count = len(inactive_countries)
-            # Generate response
-            if countries_count == 0 and inactive_countries_count == 0:
-                logging.info("No countries found for the specified criteria.")
-                response_message = {
-                    "text": "No active or inactive countries found for the specified criteria."
-                }
-                dispatcher.utter_message(json_message=response_message)
-                return []
-            response_message = {
-                "text": ""
-            }
-
-            response_message["text"] += f"Total Active Countries (current 6 Months): {countries_count}\n\n"
-            response_message["text"] += "HERE ARE THE ACTIVE COUNTRIES:\n" + "\n".join(f"- {country}" for country in active_countries) + "\n\n"
-            response_message["text"] += f"Total Inactive Countries (current 6 Months): {inactive_countries_count}\n\n"
-            response_message["text"] += "HERE ARE THE INACTIVE COUNTRIES:\n" + "\n".join(f"- {country}" for country in inactive_countries)
-
-            dispatcher.utter_message(json_message=response_message)
-            return []
         
+            if last_n_months:
+                logging.info(f"active {country} in {last_n_months}")
+                df['PurchaseDate'] = pd.to_datetime(df['PurchaseDate'], errors='coerce')
+                filtered_df = df[(df['PurchaseDate'] >= start_date) & (df['PurchaseDate'] <= end_date)]
+                active_countries_in_period = filtered_df['countryname'].unique()
+                country_sales = filtered_df[filtered_df['countryname'].str.lower() == country.lower()]
+                if country_sales.empty:
+                    response_message = {
+                        "text": f"{country} is inactive in the last {num_months} months.\n\n"
+                                f"Total active countries in the last {num_months} months: {len(active_countries_in_period)}"
+                }
+                    }
+                    dispatcher.utter_message(json_message=response_message)
+                else:
+                    response_message = {
+                        "text": f"{country} is active in the last {num_months} months./n/n"
+                                f"Total active countries in the last {num_months} months: {len(active_countries_in_period)}"
+                }
+                    }
+                    dispatcher.utter_message(json_message=response_message)
+                return []
+                
         except Exception as e:
             logging.error(f"Unexpected error in ActionGetActiveAndInactiveCountries: {e}")
             response_message = {
@@ -6896,7 +6879,7 @@ class ActionCountRepeatedEmails(Action):
                         })
             
                     # Add the total count of repeated emails to the response
-                    response_message["text"] += f"📊 Total number of repeated emails: {total_repeated_emails}"
+                    response_message["text"] += f"📊 Total number of repeated emails (From {start_date} to {end_date}): {total_repeated_emails}"
                     response_message["text"] += "\n\nTop 3 most repeaed emails"
             
                 else:
@@ -7384,7 +7367,9 @@ class ActionGetProfitMargin(Action):
                 
             else:
 
-                # Handle total profit margin
+                # Handle total profit marginRunning ActionActiveCountry...
+2025-01-09 17:25:54 ERROR    root  - Unexpected error in ActionGetActiveAndInactiveCountries: '<' not supported between instances of 'NoneType' and 'str'
+
                 logging.info("total profit margin")
                 total_profit_margin = df['ProfitMargin'].sum()
                 start_date = df['PurchaseDate'].min().date()
@@ -7451,6 +7436,7 @@ class ActionCalculateCountrySalesMetrics(Action):
             # Get the date range for the dataset
             start_date = df['PurchaseDate'].min().date()
             end_date = df['PurchaseDate'].max().date()
+            total_country = len(country_data)
 
             # Prepare the response message
             response_message = {
@@ -7462,6 +7448,7 @@ class ActionCalculateCountrySalesMetrics(Action):
                 response_message["text"] += "No sales data available by country.\n\n"
             else:
                 response_message["text"] += f"📊 Country Sales Metrics Overview (from {start_date} to {end_date}):\n\n"
+                response_message["text"] += f"Total Number of Unique country: {total_country}\n\n"
                 response_message["text"] += "🌍 Sales by Country:\n"
                 table_data = {
                     "headers": ["Country", "Total Sales", "Sales Count"],
@@ -7532,6 +7519,7 @@ class ActionCalculatePlanSalesMetrics(Action):
             plan_data = plan_data.reset_index(drop=True)
             start_date = two_months_ago.date()
             end_date = today.date()
+            total_plans = len(plan_data)
 
             # Prepare the JSON response
             response_message = {
@@ -7545,6 +7533,7 @@ class ActionCalculatePlanSalesMetrics(Action):
                 response_message["text"] += "No sales data available by plan.\n\n"
             else:
                 response_message["text"] += f"📊 Plan Sales Metrics Overview (From {start_date} to {end_date})\n\n"
+                response_message["text"] += f"Total Number of Unique Plans: {total_plans}\n\n"
                 response_message["text"] += " 📅 Sales by Plan for last 2 months:\n"
                 # Create the table format
                 plan_table = {

@@ -1,0 +1,897 @@
+version: "3.1"
+
+rules:
+
+######################sales related rules#########################
+  - rule: Handle Total Sales Specific Date Request 
+    steps:
+    - intent: get_total_sales_specific_date 
+    - action: action_get_total_sales
+    
+  - rule: get sales for half year
+    steps:
+      - intent: get_sales_for_half_year
+      - action: action_get_total_sales
+
+  - rule: get sales for fortnight
+    steps:
+      - intent: get_sales_for_fortnight
+      - action: action_get_total_sales
+
+  - rule: get sales for monthwise
+    steps:
+      - intent: get_sales_for_monthwise
+      - action: action_get_total_sales
+
+  - rule: get sales for yearwise
+    steps:
+      - intent: get_sales_for_yearwise
+      - action: action_get_total_sales
+      
+  - rule: get sales for last N months
+    steps:
+      - intent: get_sales_for_last_n_months
+      - action: action_get_total_sales
+  - rule: Respond to sales for last N weeks
+    steps:
+      - intent: get_sales_for_last_n_weeks
+      - action: action_get_total_sales
+
+  - rule: Respond to sales for last N days
+    steps:
+      - intent: get_sales_for_last_n_days
+      - action: action_get_total_sales
+
+  - rule: Respond to sales for last N hours
+    steps:
+      - intent: get_sales_for_last_n_hours
+      - action: action_get_total_sales
+
+
+  - rule: Handle Total Sales Date Range Request 
+    steps:
+    - intent: get_total_sales_date_range 
+    - action: action_get_total_sales 
+
+  - rule: Respond to today sales request
+    steps:
+      - intent: get_today_sales
+      - action: action_get_total_sales
+      
+  - rule: Respond to Quarterly sales request
+    steps:
+      - intent: get_quarterly_sales
+      - action: action_get_total_sales
+      
+  - rule: Respond to yesterday or last day sales request
+    steps:
+      - intent: get_last_day_sales
+      - action: action_get_total_sales
+      
+
+  - rule: Handle Total Sales Month Year Request 
+    steps:
+    - intent: get_total_sales_month_year 
+    - action: action_get_total_sales 
+    
+
+  - rule: Handle Total Sales Years Request 
+    steps:
+    - intent: get_total_sales_years 
+    - action: action_get_total_sales
+    
+
+  - rule: Handle Total Sales Months Request 
+    steps:
+    - intent: get_total_sales_months 
+    - action: action_get_total_sales 
+    
+
+  - rule: Handle Overall Total Sales Request 
+    steps:
+    - intent: get_total_overall_sales 
+    - action: action_get_total_sales 
+
+##########compare sales related rules#############################
+
+  - rule: Handle Sales Difference Request for Months
+    steps:
+      - intent: get_sales_compare
+      - action: action_compare_sales
+      
+  - rule: Handle Sales Difference Request for quarter
+    steps:
+      - intent: get_sales_compare_quarterly
+      - action: action_compare_sales
+
+  - rule: Handle Sales Difference Request for dates
+    steps:
+      - intent: get_sales_compare_dates
+      - action: action_compare_sales
+
+  - rule: Handle Sales Difference Request for Years
+    steps:
+      - intent: get_sales_compare
+      - action: action_compare_sales
+
+###############################country sales related rules#################
+  - rule: Respond to sales query by country
+    steps:
+      - intent: ask_sales_by_country
+      - action: action_country_sales
+
+  - rule: Respond to sales query by country for last n hours
+    steps:
+      - intent: ask_sales_by_country_last_n_hours
+      - action: action_country_sales
+
+  - rule: Respond to sales query by country for last n weeks
+    steps:
+      - intent: ask_sales_by_country_last_n_weeks
+      - action: action_country_sales
+
+  - rule: Respond to sales query by country for n days
+    steps:
+      - intent: ask_sales_by_country_last_n_days
+      - action: action_country_sales
+
+
+  - rule: Ask sales by country for fortnight
+    steps:
+      - intent: ask_sales_by_country_fortnight
+      - action: action_country_sales
+
+  - rule: Ask sales by country for half year
+    steps:
+      - intent: ask_sales_by_country_half_year
+      - action: action_country_sales
+
+  - rule: Ask sales by country for last N months
+    steps:
+      - intent: ask_sales_by_country_last_n_months
+      - action: action_country_sales
+
+  - rule: Ask sales by country for today
+    steps:
+      - intent: ask_sales_by_country_today
+      - action: action_country_sales
+
+  - rule: Ask sales by country for last day
+    steps:
+      - intent: ask_sales_by_country_last_day
+      - action: action_country_sales
+
+  - rule: Ask sales by country for date
+    steps:
+      - intent: ask_sales_by_country_date
+      - action: action_country_sales
+
+  - rule: Ask sales by country for quarterly
+    steps:
+      - intent: ask_sales_by_country_quarterly
+      - action: action_country_sales
+
+  - rule: Provide sales for country by year
+    steps:
+      - intent: ask_sales_by_country_year
+      - action: action_country_sales
+
+  - rule: Provide sales for country by month-year
+    steps:
+      - intent: ask_sales_by_country_month_year
+      - action: action_country_sales
+
+  - rule: Provide sales for country by current year month
+    steps:
+      - intent: ask_sales_by_country_current_year
+      - action: action_country_sales
+
+##############region sales related rules####################
+  - rule: provide sales for region
+    steps:
+      - intent: ask_sales_by_region
+      - action: action_region_sales
+
+  - rule: provide sales for region by year
+    steps:
+      - intent: ask_sales_by_region_year
+      - action: action_region_sales
+
+  - rule: provide sales for region by month-year
+    steps:
+      - intent: ask_sales_by_region_month_year
+      - action: action_region_sales
+
+  - rule: provide sales for region by current year month
+    steps:
+      - intent: ask_sales_by_region_current_year
+      - action: action_region_sales
+
+
+  - rule: Respond to top highest sales by country
+    steps:
+      - intent: ask_top_highest_sales_by_country
+      - action: action_top_highest_sales_by_country
+
+  - rule: Respond to top highest sales by country for a specific year
+    steps:
+      - intent: ask_top_highest_sales_by_country_year
+      - action: action_top_highest_sales_by_country
+
+  - rule: Respond to top highest sales by country for a specific month and year
+    steps:
+      - intent: ask_top_highest_sales_by_country_month_year
+      - action: action_top_highest_sales_by_country
+
+  - rule: Respond to top highest sales by country for the current year
+    steps:
+      - intent: ask_top_highest_sales_by_country_month_current_year
+      - action: action_top_highest_sales_by_country
+
+  
+#########################planname related rules###########################
+
+  - rule: ask for planname sales by country
+    steps:
+      - intent: ask_sales_by_planname
+      - action: action_planname_by_country
+
+  - rule: ask for planname sales by country for last n hours
+    steps:
+      - intent: ask_sales_by_planname_last_n_hours
+      - action: action_planname_by_country
+
+  - rule: ask for planname sales by country for last n days
+    steps:
+      - intent: ask_sales_by_planname_last_n_days
+      - action: action_planname_by_country
+
+  - rule: ask for planname sales by country for last n weeks
+    steps:
+      - intent: ask_sales_by_planname_last_n_weeks
+      - action: action_planname_by_country
+
+
+  - rule: ask for planname sales by year
+    steps:
+      - intent: ask_sales_by_planname_year
+      - action: action_planname_by_country
+
+  - rule: ask for planname sales by month-year
+    steps:
+      - intent: ask_sales_by_planname_month_year
+      - action: action_planname_by_country
+
+  - rule: ask for planname sales by current year
+    steps:
+      - intent: ask_sales_by_planname_current_year
+      - action: action_planname_by_country
+
+  - rule: Ask for sales by plan name today
+    steps:
+      - intent: ask_sales_by_planname_today
+      - action: action_planname_by_country
+
+  - rule: Ask for sales by plan name last day
+    steps:
+      - intent: ask_sales_by_planname_last_day
+      - action: action_planname_by_country
+
+  - rule: Ask for sales by plan name for a date
+    steps:
+      - intent: ask_sales_by_planname_date
+      - action: action_planname_by_country
+
+  - rule: Ask for sales by plan name for a fortnight
+    steps:
+      - intent: ask_sales_by_planname_fortnight
+      - action: action_planname_by_country
+
+  - rule: Ask for sales by plan name quarterly
+    steps:
+      - intent: ask_sales_by_planname_quarterly
+      - action: action_planname_by_country
+
+  - rule: Ask for sales by plan name half-yearly
+    steps:
+      - intent: ask_sales_by_planname_half_year
+      - action: action_planname_by_country
+
+  - rule: Ask for sales by plan name for the last N months
+    steps:
+      - intent: ask_sales_by_planname_last_n_months
+      - action: action_planname_by_country
+
+#####################active ,inactive plans and country related rules###################
+  - rule: Provide active and inactive plans
+    steps:
+      - intent: ask_active_inactive_plans
+      - action: action_get_active_inactive_plans
+
+  - rule: Provide active and inactive countries for last N months
+    steps:
+      - intent: ask_active_inactive_countries_last_n_months
+      - action: action_get_active_inactive_countries
+
+###########################highest sales plans ##############################
+
+  - rule: respond to top highest sales plans
+    steps:
+      - intent: ask_top_highest_sales_plan
+      - action: action_top_plans_sales
+      
+  - rule: respond to top highest sales plans for last n hours
+    steps:
+      - intent: ask_top_highest_sales_plan_last_n_hours
+      - action: action_top_plans_sales
+
+  - rule: respond to top highest sales plans for last n days
+    steps:
+      - intent: ask_top_highest_sales_plan_last_n_days
+      - action: action_top_plans_sales
+      
+  - rule: respond to top highest sales plans for last n weeks
+    steps:
+      - intent: ask_top_highest_sales_plan_last_n_weeks
+      - action: action_top_plans_sales
+
+
+  - rule: respond to top highest sales plans for a specific year
+    steps:
+      - intent: ask_top_highest_sales_plan_year
+      - action: action_top_plans_sales
+
+  - rule: respond to top highest sales plans for a month-year
+    steps:
+      - intent: ask_top_highest_sales_plan_month_year
+      - action: action_top_plans_sales
+
+  - rule: respond to top highest sales plans for current year
+    steps:
+      - intent: ask_top_highest_sales_plan_current_year
+      - action: action_top_plans_sales
+  - rule: Provide top highest sales plan today
+    steps:
+      - intent: ask_top_highest_sales_plan_today
+      - action: action_top_plans_sales
+
+  - rule: Provide top highest sales plan last day
+    steps:
+      - intent: ask_top_highest_sales_plan_last_day
+      - action: action_top_plans_sales
+
+  - rule: Provide top highest sales plan for a date
+    steps:
+      - intent: ask_top_highest_sales_plan_date
+      - action: action_top_plans_sales
+
+  - rule: Provide top highest sales plan quarterly
+    steps:
+      - intent: ask_top_highest_sales_plan_quarterly
+      - action: action_top_plans_sales
+
+  - rule: Provide top highest sales plan for a fortnight
+    steps:
+      - intent: ask_top_highest_sales_plan_fortnight
+      - action: action_top_plans_sales
+
+  - rule: Provide top highest sales plan for last n months
+    steps:
+      - intent: ask_top_highest_sales_plan_last_n_months
+      - action: action_top_plans_sales
+
+  - rule: Provide top highest sales plan for half year
+    steps:
+      - intent: ask_top_highest_sales_plan_half_year
+      - action: action_top_plans_sales
+      
+######################### top lowest sales plans rules###################
+  - rule: respond to top lowest sales plans
+    steps:
+      - intent: ask_top_lowest_sales_plan
+      - action: action_lowest_plans_sales
+
+  - rule: respond to top lowest sales plans for last n hours
+    steps:
+      - intent: ask_top_lowest_sales_plan_last_n_hours
+      - action: action_lowest_plans_sales
+
+  - rule: respond to top lowest sales plans for last n weeks
+    steps:
+      - intent: ask_top_lowest_sales_plan_last_n_weeks
+      - action: action_lowest_plans_sales
+      
+  - rule: respond to top lowest sales plans for last n days
+    steps:
+      - intent: ask_top_lowest_sales_plan_last_n_days
+      - action: action_lowest_plans_sales
+
+
+  - rule: respond to top lowest sales plans for a specific year
+    steps:
+      - intent: ask_top_lowest_sales_plan_year
+      - action: action_lowest_plans_sales
+
+  - rule: respond to top lowest sales plans for a month-year
+    steps:
+      - intent: ask_top_lowest_sales_plan_month_year
+      - action: action_lowest_plans_sales
+
+  - rule: respond to top lowest sales plans for current year
+    steps:
+      - intent: ask_top_lowest_sales_plan_current_year
+      - action: action_lowest_plans_sales
+ 
+  - rule: Provide lowest sales plan today
+    steps:
+       - intent: ask_top_lowest_sales_plan_today
+       - action: action_lowest_plans_sales
+
+  - rule: Provide lowest sales plan last day
+    steps:
+      - intent: ask_top_lowest_sales_plan_last_day
+      - action: action_lowest_plans_sales
+
+  - rule: Provide lowest sales plan for a date
+    steps:
+      - intent: ask_top_lowest_sales_plan_date
+      - action: action_lowest_plans_sales
+
+  - rule: Provide lowest sales plan quarterly
+    steps:
+      - intent: ask_top_lowest_sales_plan_quarterly
+      - action: action_lowest_plans_sales
+
+  - rule: Provide lowest sales plan for a fortnight
+    steps:
+      - intent: ask_top_lowest_sales_plan_fortnight
+      - action: action_lowest_plans_sales
+
+  - rule: Provide lowest sales plan for last n months
+    steps:
+      - intent: ask_top_lowest_sales_plan_last_n_months
+      - action: action_lowest_plans_sales
+
+  - rule: Provide lowest sales plan for half year
+    steps:
+      - intent: ask_top_lowest_sales_plan_half_year
+      - action: action_lowest_plans_sales
+
+  
+  - rule: Provide highest sales by country today
+    steps:
+      - intent: ask_top_highest_sales_by_country_today
+      - action: action_top_highest_sales_by_country
+
+  - rule: Provide highest sales by country for last n hours
+    steps:
+      - intent: ask_top_highest_sales_by_country_last_n_hours
+      - action: action_top_highest_sales_by_country
+      
+  - rule: Provide highest sales by country for last n days
+    steps:
+      - intent: ask_top_highest_sales_by_country_last_n_days
+      - action: action_top_highest_sales_by_country
+
+  - rule: Provide highest sales by country last n weeks
+    steps:
+      - intent: ask_top_highest_sales_by_country_last_n_weeks
+      - action: action_top_highest_sales_by_country
+
+  - rule: Provide highest sales by country last day
+    steps:
+      - intent: ask_top_highest_sales_by_country_last_day
+      - action: action_top_highest_sales_by_country
+
+  - rule: Provide highest sales by country for a date
+    steps:
+      - intent: ask_top_highest_sales_by_country_date
+      - action: action_top_highest_sales_by_country
+
+  - rule: Provide highest sales by country quarterly
+    steps:
+      - intent: ask_top_highest_sales_by_country_quarterly
+      - action: action_top_highest_sales_by_country
+
+  - rule: Provide highest sales by country half year
+    steps:
+      - intent: ask_top_highest_sales_by_country_half_year
+      - action: action_top_highest_sales_by_country
+
+  - rule: Provide highest sales by country fortnight
+    steps:
+      - intent: ask_top_highest_sales_by_country_fortnight
+      - action: action_top_highest_sales_by_country
+
+  - rule: Provide highest sales by country for last n months
+    steps:
+      - intent: ask_top_highest_sales_by_country_last_n_months
+      - action: action_top_highest_sales_by_country
+   
+##############top lowest sales by country rules #############################
+
+
+  - rule: Respond to top lowest sales by country
+    steps:
+      - intent: ask_top_lowest_sales_by_country
+      - action: action_top_lowest_sales_by_country
+
+
+  - rule: Respond to top lowest sales by country for last n hours
+    steps:
+      - intent: ask_top_lowest_sales_by_country_last_n_hours
+      - action: action_top_lowest_sales_by_country
+
+
+
+  - rule: Respond to top lowest sales by country for last n weeks
+    steps:
+      - intent: ask_top_lowest_sales_by_country_last_n_weeks
+      - action: action_top_lowest_sales_by_country
+
+
+
+  - rule: Respond to top lowest sales by country for last n days
+    steps:
+      - intent: ask_top_lowest_sales_by_country_last_n_days
+      - action: action_top_lowest_sales_by_country
+
+
+  - rule: Respond to top lowest sales by country for a specific year
+    steps:
+      - intent: ask_top_lowest_sales_by_country_year
+      - action: action_top_lowest_sales_by_country
+
+  - rule: Respond to top lowest sales by country for a specific month and year
+    steps:
+      - intent: ask_top_lowest_sales_by_country_month_year
+      - action: action_top_lowest_sales_by_country
+
+  - rule: Respond to top lowest sales by country for the current year
+    steps:
+      - intent: ask_top_lowest_sales_by_country_month_current_year
+      - action: action_top_lowest_sales_by_country
+  
+  - rule: Provide lowest sales by country today
+    steps:
+      - intent: ask_top_lowest_sales_by_country_today
+      - action: action_top_lowest_sales_by_country
+
+  - rule: Provide lowest sales by country last day
+    steps:
+      - intent: ask_top_lowest_sales_by_country_last_day
+      - action: action_top_lowest_sales_by_country
+
+  - rule: Provide lowest sales by country for a date
+    steps:
+      - intent: ask_top_lowest_sales_by_country_date
+      - action: action_top_lowest_sales_by_country
+
+  - rule: Provide lowest sales by country fortnight
+    steps:
+      - intent: ask_top_lowest_sales_by_country_fortnight
+      - action: action_top_lowest_sales_by_country
+
+  - rule: Provide lowest sales by country quarterly
+    steps:
+      - intent: ask_top_lowest_sales_by_country_quarterly
+      - action: action_top_lowest_sales_by_country
+
+  - rule: Provide lowest sales by country half year
+    steps:
+      - intent: ask_top_lowest_sales_by_country_half_year
+      - action: action_top_lowest_sales_by_country
+
+  - rule: Provide lowest sales by country for last n months
+    steps:
+      - intent: ask_top_lowest_sales_by_country_last_n_months
+      - action: action_top_lowest_sales_by_country
+     
+#################compare country sales related rules####################
+
+  - rule: Compare country sales for a specific month and year
+    steps:
+      - intent: ask_compare_country_sales_by_month
+      - action: action_compare_countries
+
+  - rule: Compare country sales for a specific quarter
+    steps:
+      - intent: ask_compare_country_sales_by_quarterly
+      - action: action_compare_countries
+
+  - rule: Compare country sales for a specific year
+    steps:
+      - intent: ask_compare_country_sales_by_year
+      - action: action_compare_countries
+
+  - rule: Compare country sales for a specific month
+    steps:
+      - intent: ask_compare_country_sales_by_months_extracted
+      - action: action_compare_countries
+
+  - rule: Compare country sales for a specific date
+    steps:
+      - intent: ask_compare_country_sales_by_dates
+      - action: action_compare_countries
+
+  - rule: Compare country sales for half year
+    steps:
+      - intent: ask_compare_country_sales_by_half_year
+      - action: action_compare_countries
+
+  - rule: Compare country sales for fortnight
+    steps:
+      - intent: ask_compare_country_sales_by_fortnight
+      - action: action_compare_countries
+
+  - rule: Compare country sales for last day
+    steps:
+      - intent: ask_compare_country_sales_by_last_day
+      - action: action_compare_countries
+
+  - rule: Compare country sales for today
+    steps:
+      - intent: ask_compare_country_sales_by_today
+      - action: action_compare_countries
+
+  - rule: Compare country sales for last n months
+    steps:
+      - intent: ask_compare_country_sales_by_last_n_months
+      - action: action_compare_countries
+
+  - rule: Compare country sales for last n weeks
+    steps:
+      - intent: ask_compare_country_sales_by_last_n_weeks
+      - action: action_compare_countries
+  - rule: Compare country sales for last n hours
+    steps:
+      - intent: ask_compare_country_sales_by_last_n_hours
+      - action: action_compare_countries
+
+  - rule: Compare country sales for last n days
+    steps:
+      - intent: ask_compare_country_sales_by_last_n_days
+      - action: action_compare_countries
+####################most and least sold plans for country related rules##########################
+
+  - rule: respond to most and least sold plans for country
+    steps:
+      - intent: ask_most_and_least_sold_plans_for_country
+      - action: action_most_and_least_sold_plans_for_country
+
+
+  - rule: respond to most and least sold plans for country for last n hours
+    steps:
+      - intent: ask_most_and_least_sold_plans_for_country_last_n_hours
+      - action: action_most_and_least_sold_plans_for_country
+
+
+  - rule: respond to most and least sold plans for country for last n days
+    steps:
+      - intent: ask_most_and_least_sold_plans_for_country_last_n_days
+      - action: action_most_and_least_sold_plans_for_country
+
+
+  - rule: respond to most and least sold plans for country for last n weeks
+    steps:
+      - intent: ask_most_and_least_sold_plans_for_country_last_n_weeks
+      - action: action_most_and_least_sold_plans_for_country
+      
+  - rule: respond to most and least sold plans for country in a specific year
+    steps:
+      - intent: ask_most_and_least_sold_plans_for_country_year
+      - action: action_most_and_least_sold_plans_for_country
+
+  - rule: respond to most and least sold plans for country in a specific month and year
+    steps:
+      - intent: ask_most_and_least_sold_plans_for_country_month_year
+      - action: action_most_and_least_sold_plans_for_country
+
+  - rule: respond to most and least sold plans for country in a specific month of the current year
+    steps:
+      - intent: ask_most_and_least_sold_plans_for_country_month_current_year
+      - action: action_most_and_least_sold_plans_for_country
+
+  - rule: Ask most and least sold plans for today
+    steps:
+      - intent: ask_most_and_least_sold_plans_for_country_today
+      - action: action_most_and_least_sold_plans_for_country
+      
+  - rule: Ask most and least sold plans for the last day
+    steps:
+      - intent: ask_most_and_least_sold_plans_for_country_last_day
+      - action: action_most_and_least_sold_plans_for_country
+     
+
+  - rule: Ask most and least sold plans for a date
+    steps:
+      - intent: ask_most_and_least_sold_plans_for_country_date
+      - action: action_most_and_least_sold_plans_for_country
+      
+
+  - rule: Ask most and least sold plans for the last fortnight
+    steps:
+      - intent: ask_most_and_least_sold_plans_for_country_fortnight
+      - action: action_most_and_least_sold_plans_for_country
+     
+  - rule: Ask most and least sold plans for a quarterly period
+    steps:
+      - intent: ask_most_and_least_sold_plans_for_country_quarterly
+      - action: action_most_and_least_sold_plans_for_country
+      
+
+  - rule: Ask most and least sold plans for the last n months
+    steps:
+      - intent: ask_most_and_least_sold_plans_for_country_last_n_months
+      - action: action_most_and_least_sold_plans_for_country
+      
+  - rule: Ask most and least sold plans for the half-year period
+    steps:
+      - intent: ask_most_and_least_sold_plans_for_country_half_year
+      - action: action_most_and_least_sold_plans_for_country
+      
+###################source,payment gateway, refsite related rules#######################
+
+  - rule: Handle sales by source, payment gateway, and refsite
+    steps:
+      - intent: ask_sales_by_source_payment_gateway_refsite
+      - action: action_sales_by_source_payment_gateway_refsite
+      
+
+  - rule: Handle sales by source, payment gateway, and refsite for month and year
+    steps:
+      - intent: ask_sales_by_source_payment_gateway_refsite_month_year
+      - action: action_sales_by_source_payment_gateway_refsite
+      
+
+  - rule: Handle sales by source, payment gateway, and refsite for year
+    steps:
+      - intent: ask_sales_by_source_payment_gateway_refsite_year
+      - action: action_sales_by_source_payment_gateway_refsite
+      
+  - rule: Handle sales by source, payment gateway, and refsite for current month
+    steps:
+      - intent: ask_sales_by_source_payment_gateway_refsite_month_current_year
+      - action: action_sales_by_source_payment_gateway_refsite
+      
+############# sales metrics and growth rules#####################
+  - rule: Calculate sales metrics and growth
+    steps:
+      - intent: ask_calculate_sales_metrics_and_growth
+      - action: action_calculate_sales_metrics_and_growth
+
+  - rule: Calculate country sales metrics 
+    steps:
+      - intent: ask_calculate_country_sales_metrics
+      - action: action_calculate_country_sales_metrics
+
+  - rule: Calculate plan sales metrics 
+    steps:
+      - intent: ask_calculate_plan_sales_metrics
+      - action: action_calculate_plan_sales_metrics
+
+############ repeated emails related rules ##############################
+  - rule: Retrieve repeated emails information
+    steps:
+      - intent: ask_repeated_registered_emails
+      - action: action_count_repeated_emails
+
+  - rule: Provide repeated registered emails for the current year
+    steps:
+      - intent: ask_repeated_registered_emails_year
+      - action: action_count_repeated_emails
+
+  - rule: Provide repeated registered emails for a specific month and year
+    steps:
+      - intent: ask_repeated_registered_emails_month_year
+      - action: action_count_repeated_emails
+
+  - rule: Provide repeated registered emails for the current month of the current year
+    steps:
+      - intent: ask_repeated_registered_emails_month_current_year
+      - action: action_count_repeated_emails
+
+  - rule: Provide repeated registered emails for this quarter
+    steps:
+      - intent: ask_repeated_registered_emails_quarterly
+      - action: action_count_repeated_emails
+
+########################profit margin###############################
+  - rule: Get profit margin 
+    steps:
+      - intent: ask_profit_margin
+      - action: action_get_profit_margin
+
+  - rule: Get profit margin for monthwise
+    steps:
+      - intent: ask_profit_margin_monthwise
+      - action: action_get_profit_margin
+
+  - rule: Get profit margin for yearwise
+    steps:
+      - intent: ask_profit_margin_yearwise
+      - action: action_get_profit_margin
+
+
+  - rule: Get profit margin for last n hours
+    steps:
+      - intent: ask_profit_margin_last_n_hours
+      - action: action_get_profit_margin
+      
+  - rule: Get profit margin last n days
+    steps:
+      - intent: ask_profit_margin_last_n_days
+      - action: action_get_profit_margin
+
+  - rule: Get profit margin last n weeks
+    steps:
+      - intent: ask_profit_margin_last_n_weeks
+      - action: action_get_profit_margin
+      
+  - rule: Get profit margin for today
+    steps:
+      - intent: ask_profit_margin_today
+      - action: action_get_profit_margin
+
+  - rule: Get profit margin for last day
+    steps:
+      - intent: ask_profit_margin_last_day
+      - action: action_get_profit_margin
+      
+  - rule: Get profit margin for date
+    steps:
+      - intent: ask_profit_margin_date
+      - action: action_get_profit_margin
+
+  - rule: Get profit margin for specific month and year
+    steps:
+      - intent: ask_profit_margin_month_year
+      - action: action_get_profit_margin
+
+  - rule: Get profit margin for specific year
+    steps:
+      - intent: ask_profit_margin_year
+      - action: action_get_profit_margin
+
+  - rule: Get profit margin for last fortnight
+    steps:
+      - intent: ask_profit_margin_fortnight
+      - action: action_get_profit_margin
+
+  - rule: Get profit margin for quarterly
+    steps:
+      - intent: ask_profit_margin_quarterly
+      - action: action_get_profit_margin
+
+  - rule: Get profit margin for half yearly
+    steps:
+      - intent: ask_profit_margin_half_year
+      - action: action_get_profit_margin
+
+  - rule: Get profit margin for last months
+    steps:
+      - intent: ask_profit_margin_last_months
+      - action: action_get_profit_margin
+
+  - rule: Get profit margin for current month in current year
+    steps:
+      - intent: ask_profit_margin_month_current_year
+      - action: action_get_profit_margin
+      
+##################################################sales prediction#########################################
+
+  - rule: Get sales prediction for daily
+    steps:
+      - intent: ask_sales_prediction_daily
+      - action: action_sales_prediction
+
+  - rule: Get sales prediction for monthly
+    steps:
+      - intent: ask_sales_prediction_monthly
+      - action: action_sales_prediction
+
+
+  - rule: Get sales prediction for yearly
+    steps:
+      - intent: ask_sales_prediction_monthly
+      - action: action_sales_prediction

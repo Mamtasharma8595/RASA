@@ -25,7 +25,7 @@ def process_message():
         if response.status_code == 200:
             # Return the response from Rasa to Streamlit
             rasa_response = response.json()
-            logging.debug(f"Response from Rasa: {rasa_response}")
+            # logging.debug(f"Response from Rasa: {rasa_response}")
            
             return jsonify({"status": "success", "response": rasa_response})
         else:

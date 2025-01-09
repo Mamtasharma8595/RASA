@@ -308,9 +308,9 @@ rules:
       - intent: ask_active_inactive_plans
       - action: action_get_active_inactive_plans
 
-  - rule: Provide active and inactive countries
+  - rule: Provide active and inactive countries for last N months
     steps:
-      - intent: ask_active_inactive_countries
+      - intent: ask_active_inactive_countries_last_n_months
       - action: action_get_active_inactive_countries
 
 ###########################highest sales plans ##############################

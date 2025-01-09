@@ -287,14 +287,14 @@ stories:
       - action: action_planname_by_country
 
 ###################active or inactive plans and country related story########################    
-  - story: Request active and inactive plans
+  - story: Request active and inactive plans 
     steps:
       - intent: ask_active_inactive_plans
       - action: action_get_active_inactive_plans
 
-  - story: Request active and inactive countries
+  - story: Request active and inactive countries in last N months
     steps:
-      - intent: ask_active_inactive_countries
+      - intent: ask_active_inactive_countries_last_n_months
       - action: action_get_active_inactive_countries
 
 ########################top highest sales plans related story#######################

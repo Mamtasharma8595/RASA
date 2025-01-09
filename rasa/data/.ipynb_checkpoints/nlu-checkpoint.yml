@@ -1106,20 +1106,19 @@ nlu:
     - what are the inactive plans?
     - active plans
     - inactive
-- intent: ask_active_inactive_countries
+- intent: ask_active_inactive_countries_last_n_months
   examples: |
-    - What are the active countries?
-    - Show me the active countries.
-    - Give me a list of active countries.
-    - Can you tell me the current active countries?
-    - Show me all active and inactive countries
-    - Can you list active and inactive countries?
-    - Which countries are active or inactive?
-    - Give me the active and inactive countries list
-    - What are the active and inactive countries?
-    - what are the inactive countries?
-    - active country
-    - inactive country
+    - Is [USA](country) active in the last 5 months?
+    - Was [India](country) active in the last 6 months?
+    - Is [Canada](country) inactive in the last 3 months?
+    - Has [Brazil](country) been active in the last 7 months?
+    - Tell me if [Germany](country) is active in the past 8 months.
+    - Is [France](country) inactive for the last 2 month?
+    - Was [Japan](country) active in the last 4 months?
+    - Check if [UK](country) is active in the last 3 months.
+    - Is [Australia](country) inactive in the last 2 months?
+    - How about [Mexico](country), is it active in the last 10 months?
+  
 - intent: ask_top_highest_sales_plan
   examples: |
     - What are the top 10 highest sales plans?
