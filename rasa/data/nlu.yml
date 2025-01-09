@@ -42,42 +42,6 @@ nlu:
     - Check the sales amount for [5-5-2023](specific_date).
     - Revenue details for 24th aug 2024
     
-- intent: get_total_sales_date_range
-  examples: |
-    - sales from june 2023 to july 2024.
-    - Give me the sales from june 2023 to july 2024 .
-    - Total sales from july 2024 to sept 2024.
-    - Show me sales figures between april 2022 and april 2024.
-    - What were the total sales from sept 2021 to nov 2023?
-    - Can you provide sales data from april 2021 to sept 2024?
-    - How much did we sell between nov 2022 to dec 2023?
-    - what is the sales from june 2023 to april 2024
-    - What are the sales from [2 April 2023](start_date) to [30 June 2024](end_date)?
-    - Show me sales between [1st March 2023](start_date) and [15th March 2023](end_date).
-    - Can you provide the sales data from [January 2024](start_date) to [March 2024](end_date)?
-    - Tell me the total sales from [April 5, 2023](start_date) to [April 15, 2023](end_date).
-    - Give me sales information for [7th nov 2023](start_date) to [21st april 2024](end_date).
-    - I want to see the sales between [December 1, 2023](start_date) and [December 31, 2023](end_date).
-    - How much did we sell between [November 2022](start_date) to [December 2023](end_date)?
-    - What's the sales report from [June 2023](start_date) to [April 2024](end_date)?
-    - Sales data between [1st January 2023](start_date) and [31st December 2023](end_date).
-    - Can I get sales records from [March 2023](start_date) to [August 2023](end_date)?
-    - I need the sales numbers from [February 2023](start_date) through [May 2023](end_date).
-    - Provide the sales summary from [July 2022](start_date) to [January 2024](end_date).
-    - How much was sold from [March 15, 2023](start_date) until [October 10, 2023](end_date)?
-    - What's the sales figure from [February 1, 2022](start_date) to [February 28, 2022](end_date)?
-    - Can you show me sales details between [May 2021](start_date) and [May 2022](end_date)?
-    - Tell me the sales performance from [December 2022](start_date) to [March 2024](end_date).
-    - Could I see the sales from [October 2022](start_date) up to [January 2023](end_date)?
-    - Give me the total sales from [April 3, 2023](start_date) to [June 30, 2023](end_date).
-    - Sales revenue between [January 2023](start_date) and [March 2023](end_date).
-    - I would like the sales figures from [July 1, 2022](start_date) to [September 30, 2022](end_date).
-    - What are the sales amounts from [October 15, 2023](start_date) to [November 15, 2023](end_date)?
-    - Show me the monthly sales totals from [August 2022](start_date) to [August 2023](end_date).
-    - How did sales perform between [March 2021](start_date) and [October 2021](end_date)?
-    - I'd like the sales numbers from [January 5, 2023](start_date) through [February 5, 2023](end_date).
-    - Provide the total sales amount from [February 2022](start_date) to [June 2023](end_date).
-    - Check sales volume from [July 15, 2023](start_date) until [August 15, 2023](end_date).
 - intent: get_quarterly_sales
   examples: |
     - sales in q1.
@@ -136,19 +100,19 @@ nlu:
   examples: |
     - sales in half year.
     - What were the sales for the first half year?
-    - How many sales were made in the second half of {year}?
-    - Show me the sales for the first half of {current_year}.
-    - What was the sales count in the first half of {year}?
-    - Can you give me the sales data for the second half of {year}?
-    - What were the sales for the first six months of {year}?
-    - What was the revenue in the first half of {current_year}?
+    - How many sales were made in the second half of 2023?
+    - Show me the sales for the first half of 2024.
+    - What was the sales count in the first half of 2022?
+    - Can you give me the sales data for the second half of 2025?
+    - What were the sales for the first six months of 2024?
+    - What was the revenue in the first half of 2026?
     - Can you show me the total sales for the first six months of this year?
-    - How much revenue did we generate in the first half of {year}?
-    - Can you show me the sales numbers for {year}'s first half?
-    - What were the sales figures for the first half of {current_year}?
-    - Show me the first 6 months of sales data for {current_year}.
-    - How much was sold from January to June {year}?
-    - Can you tell me the sales in the second half of {year}?
+    - How much revenue did we generate in the first half of 2023?
+    - Can you show me the sales numbers for 2023 first half?
+    - What were the sales figures for the first half of 2024?
+    - Show me the first 6 months of sales data for 2026.
+    - How much was sold from January to June 2026?
+    - Can you tell me the sales in the second half of 2023?
     - Sales in the first half of 2024.
     - What were the sales for the first half of 2023?
     - How many sales were made in the second half of 2022?
@@ -571,10 +535,10 @@ nlu:
 - intent: ask_sales_by_country_half_year
   examples: |
     - What are the sales in [India](country) for the first half of the year?
-    - How much were the sales in [USA](country) for the first half of {year}?
-    - Can you show me the sales for [Brazil](country) in the first six months of {current_year}?
-    - What were the sales in [China](country) for the first half of {year}?
-    - Show me the sales for [Germany](country) in the first half of {year}.
+    - How much were the sales in [USA](country) for the first half of 2024?
+    - Can you show me the sales for [Brazil](country) in the first six months of 2023?
+    - What were the sales in [China](country) for the first half of 2024?
+    - Show me the sales for [Germany](country) in the first half of 2025.
     - What are the sales in [India](country) for the first half of the year?
     - Show me the sales for the second half of the year in [USA](country)
     - What were the sales in the first half of 2024 for [Germany](country)?
@@ -619,8 +583,8 @@ nlu:
     - canada sales in h2 2024
     - Japan sales in h2.
     - Mexico sales in h1 2023.
-    - Show me the sales figures for [France](country) in the first half of {year}.
-    - How much did [Mexico](country) generate in sales for the first half of {year}?
+    - Show me the sales figures for [France](country) in the first half of 2026.
+    - How much did [Mexico](country) generate in sales for the first half of 2027?
 - intent: ask_sales_by_country_last_n_months
   examples: |
     - What were the sales for [India](country) in the last 3 months?
@@ -1323,13 +1287,13 @@ nlu:
   examples: |
     - What is the top-selling plan for the first half of the year?
     - Show me the highest sales plan for the first half  of 2024.
-    - What is the best-selling plan for the first six months of {year}?
-    - Can you show me the top plan by sales for the first half of {current_year}?
+    - What is the best-selling plan for the first six months of 2024?
+    - Can you show me the top plan by sales for the first half of 2023?
     - What was the top-selling plan for the first half of 2023?
     - Show me the highest-selling plan for the first half of 2022.
     - What plan had the highest sales for the first half of 2021?
-    - Can you provide the top sales plan for the first six months of {year}?
-    - What were the highest-selling plans for the first half of {current_year}?
+    - Can you provide the top sales plan for the first six months of 2026?
+    - What were the highest-selling plans for the first half of 2027?
     - Tell me the most sold plan in the last half year.
     - What was the best-selling plan for the last six months?
     - Show me the most popular plan for the first half of the year.
@@ -1364,9 +1328,9 @@ nlu:
     - What is the best-selling plan in the first half of 2020?
     - Which plan sold the most in H1 of 2022?
     - Tell me about the highest sales plan for the second half of 2021.
-    - Show me the highest revenue plan for the first half of {year}.
+    - Show me the highest revenue plan for the first half of 2022.
     - What plan had the highest sales in the first half of 2020?
-    - Can you show me the top-selling plan for H1 of {year}?
+    - Can you show me the top-selling plan for H1 of 2024?
 - intent: ask_top_lowest_sales_plan
   examples: |
     - What are the top 10 lowest sales plans?
@@ -1703,8 +1667,8 @@ nlu:
     - What were the highest sales by country in the last six months?
     - Show me the top-selling countries for the first half of the year.
     - Which countries had the highest sales for the past six months?
-    - What countries had the highest sales in the first half of {year}?
-    - Show me the top-performing countries for the first half of {current_year}.
+    - What countries had the highest sales in the first half of 2023?
+    - Show me the top-performing countries for the first half of 2026.
     - What were the highest sales by country in H1 of 2024?
     - Show me the top-selling countries for H2 of 2023.
     - Which countries had the highest sales for the past six months in 2022?
@@ -1714,8 +1678,8 @@ nlu:
     - Can you show the highest sales by country in H2 of 2022?
     - What countries have the highest sales in the second half of 2024?
     - Which countries had the highest sales during H1 of 2020?
-    - Which countries had the highest revenue in the first half of {year}?
-    - Show me the countries with the highest sales in H1 of {year}.
+    - Which countries had the highest revenue in the first half of 2024?
+    - Show me the countries with the highest sales in H1 of 2024.
     - Top sales country in H1 of 2022.
     - Highest sales country in H2 of 2023.
     - Show me the top-selling countries in the first half of 2021.
@@ -1960,12 +1924,12 @@ nlu:
     - Which countries performed the worst in sales over the first half of the year?
     - Show me the lowest sales countries from the second half of the year.
     - What were the sales figures for the lowest-performing countries in the last half year?
-    - What countries had the lowest sales in the first half of {year}?
-    - Show me the underperforming countries for the first half of {current_year}.
+    - What countries had the lowest sales in the first half of 2023?
+    - Show me the underperforming countries for the first half of 2025.
     - Which countries had the lowest sales in the first six months of 2023?
     - Can you provide the lowest sales countries for the first half of 2022?
     - What were the least-selling countries for the first half of 2024?
-    - Which countries had the lowest revenue in the first half of {year}?
+    - Which countries had the lowest revenue in the first half of 2026?
     - Which countries had the worst sales performance in the first half the year?
     - lowest sales country in h1
     - lowest sales country in H2
@@ -2197,17 +2161,17 @@ nlu:
 - intent: ask_compare_country_sales_by_half_year
   examples: |
     - Compare the sales of {country} and {country} for the first half of 2023.
-    - Show me a comparison of sales between {country} and {country} for the first half of {current_year}.
+    - Show me a comparison of sales between {country} and {country} for the first half of 2023.
     - How did sales in {country} compare to {country} in the first half of 2022?
-    - Can you compare the sales performance of {country} and {country} for the first six months of {year}?
-    - Compare the sales figures of {country} and {country} for the first half of {year}.
+    - Can you compare the sales performance of {country} and {country} for the first six months of 2024?
+    - Compare the sales figures of {country} and {country} for the first half of 2026.
     - What were the sales like in {country} versus {country} for the first half of 2024?
     - Can you compare the sales of {country} and {country} for the first half of 2021?
-    - How did the sales in {country} compare to {country} for H1 of {year}?
+    - How did the sales in {country} compare to {country} for H1 of 2027?
     - Show a comparison of sales between {country} and {country} for the first six months of 2023.
     - What were the sales figures for {country} and {country} in the first half of 2020?
-    - Compare the sales performance in {country} and {country} for H1 of {current_year}.
-    - How did {country} and {country} perform in sales for the first half of {year}?
+    - Compare the sales performance in {country} and {country} for H1 of 2022.
+    - How did {country} and {country} perform in sales for the first half of 2027?
     - Provide a comparison of sales between {country} and {country} for the first half of 2022.
     - How did the sales of {country} and {country} differ in the second half of 2024?
     - Show me the sales comparison between {country} and {country} for the first half of 2023.
@@ -2481,22 +2445,22 @@ nlu:
     - most and least sold plans in first half of the year
     - What were the most and least sold plans in {country} for H1 of 2024?
     - Show me the sales data for {country} for H2 of 2023.
-    - Tell me about the most and least sold plans in {country} for the first half of [2022](year).
+    - Tell me about the most and least sold plans in {country} for the first half of 2023.
     - What was the sales performance in {country} for H1 of 2021?
-    - What were the top-selling and lowest-selling plans in {country} for the first half of {year}?
-    - Can you provide the most and least sold plans for {country} in the first half of {current_year}?
+    - What were the top-selling and lowest-selling plans in {country} for the first half of 2022?
+    - Can you provide the most and least sold plans for {country} in the first half of 2029?
     - Can you show me the sales for {country} from January to June 2024?
     - How did {country} perform in terms of sales for the first half of 2024?
     - Show me the sales figures for {country} for the first six months of 2023.
     - What were the least and most sold plans for {country} in H2 of 2024?
-    - What were the best and worst-performing plans in {country} for H1 of {year}?
+    - What were the best and worst-performing plans in {country} for H1 of 2028?
     - What were the most and least sold plans for {country} in the first half of 2020?
     - Most and least sold plans for {country} in H1 2023.
     - Least and most sold plans for {country} in H2 2022.
     - Provide the most and least sold plans for {country} for the second half of 2024.
     - Tell me about the least and most sold plans for {country} in H1 of 2021.
     - What were the sales trends for {country} during the first half of 2022?
-    - Can you tell me the most and least sold plans in {country} for the first half of {year}?
+    - Can you tell me the most and least sold plans in {country} for the first half of 2025?
     - List the most and least sold plans for {country} for the first half of the year 2023.
     - What were the top-performing and lowest-performing plans in {country} in H1 of 2020?
     - How did the plans in {country} perform in the first half of 2024?
@@ -2632,30 +2596,7 @@ nlu:
     - Tell me the emails that were registered more than once this year.
     - List the repeated emails for this year.
     - Repeated emails in 2024(year)
-    - Show me the repeated registered emails for Q1 of 2023.
-    - What are the repeated registered emails for Q2 of 2022?
-    - List the repeated emails for Q3 in 2021.
-    - Provide the repeated registered emails for the fourth quarter of 2023.
-    - Can you show me the repeated emails for the first quarter of 2022?
-    - What were the repeated registered emails for Q4 in 2020?
-    - Tell me about the repeated registered emails in Q2 of 2024.
-    - How many repeated registered emails were there in the third quarter of 2019?
-    - Provide a list of repeated emails for the second quarter of 2021.
-    - Show the repeated emails for the first quarter of 2020.
-    - What are the repeated registered emails for Q3 in 2022?
-    - List the repeated registered emails for Q4 of 2024.
-    - Tell me the repeated emails for Q2 of 2019.
-    - Show me the repeated emails for Q3 in 2023.
-    - How many repeated emails were there in the fourth quarter of 2021?
-    - Provide the repeated registered emails for Q1 in 2021.
-    - Can you tell me about the repeated registered emails for Q4 of 2022?
-    - Repeated emails in the second quarter of 2023.
-    - What are the repeated emails for Q3 of 2020?
-    - Show me the repeated registered emails in the first quarter of 2024.
-    - List the repeated registered emails for Q4 of 2019.
-    - What were the repeated emails registered in Q1 of 2023?
-    - Provide the repeated emails for Q2 in 2020.
-    - Show me the repeated emails for Q1 and Q3 of 2024.
+
 - intent: ask_repeated_registered_emails_month_year
   examples: |
     - What are the repeated registered emails in [December 2023]?
@@ -2888,24 +2829,24 @@ nlu:
     - Profit margin in the first half of 2024
     - What’s the total profit margin for the second half?
     - What was the profit margin for the first half year?
-    - How much profit margin did we achieve in the second half of {year}?
-    - Show me the profit margin for the first half of {year}.
-    - What was the profit margin in the first half of {year}?
-    - Can you give me the profit margin data for the second half of {year}?
-    - What was the profit margin for the first six months of {year}?
-    - What was the total profit in the first half of {current_year}?
+    - How much profit margin did we achieve in the second half of 2026?
+    - Show me the profit margin for the first half of 2025.
+    - What was the profit margin in the first half of 2023?
+    - Can you give me the profit margin data for the second half of 2025?
+    - What was the profit margin for the first six months of 2023?
+    - What was the total profit in the first half of 2028?
     - Can you show me the profit margin for the first six months of this year?
-    - What was the revenue margin in the first half of {year}?
-    - Can you show me the profit numbers for {year}'s first half?
-    - What were the profit margin figures for the first half of {current_year}?
-    - Show me the profit margin data for the first 6 months of {current_year}.
-    - How much profit did we earn from January to June {year}?
-    - Can you tell me the profit margin in the second half of {year}?
-    - What was the profit margin in the last six months of {year}?
-    - Can you provide the half-year profit margin for the first part of {year}?
-    - Summarize the profit margin for the first half of {current_year}.
-    - Profit margin for the first half of {year}, please.
-    - Breakdown of the profit margin for the second half of {current_year}.
+    - What was the revenue margin in the first half of 2029?
+    - Can you show me the profit numbers for 2026 first half?
+    - What were the profit margin figures for the first half of 2023?
+    - Show me the profit margin data for the first 6 months of 2022.
+    - How much profit did we earn from January to June 2028?
+    - Can you tell me the profit margin in the second half of 2029?
+    - What was the profit margin in the last six months of 2022?
+    - Can you provide the half-year profit margin for the first part of 2028?
+    - Summarize the profit margin for the first half of 2030.
+    - Profit margin for the first half of 2025 please.
+    - Breakdown of the profit margin for the second half of 2025.
     - profit margin for the second half of the year
     - profit margin in h1
     - profit margin in h2
