@@ -18,10 +18,35 @@ rules:
       - intent: get_sales_for_fortnight
       - action: action_get_total_sales
 
+  - rule: get sales for monthwise
+    steps:
+      - intent: get_sales_for_monthwise
+      - action: action_get_total_sales
+
+  - rule: get sales for yearwise
+    steps:
+      - intent: get_sales_for_yearwise
+      - action: action_get_total_sales
+      
   - rule: get sales for last N months
     steps:
       - intent: get_sales_for_last_n_months
       - action: action_get_total_sales
+  - rule: Respond to sales for last N weeks
+    steps:
+      - intent: get_sales_for_last_n_weeks
+      - action: action_get_total_sales
+
+  - rule: Respond to sales for last N days
+    steps:
+      - intent: get_sales_for_last_n_days
+      - action: action_get_total_sales
+
+  - rule: Respond to sales for last N hours
+    steps:
+      - intent: get_sales_for_last_n_hours
+      - action: action_get_total_sales
+
 
   - rule: Handle Total Sales Date Range Request 
     steps:
@@ -79,6 +104,11 @@ rules:
       - intent: get_sales_compare_quarterly
       - action: action_compare_sales
 
+  - rule: Handle Sales Difference Request for dates
+    steps:
+      - intent: get_sales_compare_dates
+      - action: action_compare_sales
+
   - rule: Handle Sales Difference Request for Years
     steps:
       - intent: get_sales_compare
@@ -89,6 +119,22 @@ rules:
     steps:
       - intent: ask_sales_by_country
       - action: action_country_sales
+
+  - rule: Respond to sales query by country for last n hours
+    steps:
+      - intent: ask_sales_by_country_last_n_hours
+      - action: action_country_sales
+
+  - rule: Respond to sales query by country for last n weeks
+    steps:
+      - intent: ask_sales_by_country_last_n_weeks
+      - action: action_country_sales
+
+  - rule: Respond to sales query by country for n days
+    steps:
+      - intent: ask_sales_by_country_last_n_days
+      - action: action_country_sales
+
 
   - rule: Ask sales by country for fortnight
     steps:
@@ -190,6 +236,22 @@ rules:
       - intent: ask_sales_by_planname
       - action: action_planname_by_country
 
+  - rule: ask for planname sales by country for last n hours
+    steps:
+      - intent: ask_sales_by_planname_last_n_hours
+      - action: action_planname_by_country
+
+  - rule: ask for planname sales by country for last n days
+    steps:
+      - intent: ask_sales_by_planname_last_n_days
+      - action: action_planname_by_country
+
+  - rule: ask for planname sales by country for last n weeks
+    steps:
+      - intent: ask_sales_by_planname_last_n_weeks
+      - action: action_planname_by_country
+
+
   - rule: ask for planname sales by year
     steps:
       - intent: ask_sales_by_planname_year
@@ -257,6 +319,22 @@ rules:
     steps:
       - intent: ask_top_highest_sales_plan
       - action: action_top_plans_sales
+      
+  - rule: respond to top highest sales plans for last n hours
+    steps:
+      - intent: ask_top_highest_sales_plan_last_n_hours
+      - action: action_top_plans_sales
+
+  - rule: respond to top highest sales plans for last n days
+    steps:
+      - intent: ask_top_highest_sales_plan_last_n_days
+      - action: action_top_plans_sales
+      
+  - rule: respond to top highest sales plans for last n weeks
+    steps:
+      - intent: ask_top_highest_sales_plan_last_n_weeks
+      - action: action_top_plans_sales
+
 
   - rule: respond to top highest sales plans for a specific year
     steps:
@@ -312,6 +390,22 @@ rules:
     steps:
       - intent: ask_top_lowest_sales_plan
       - action: action_lowest_plans_sales
+
+  - rule: respond to top lowest sales plans for last n hours
+    steps:
+      - intent: ask_top_lowest_sales_plan_last_n_hours
+      - action: action_lowest_plans_sales
+
+  - rule: respond to top lowest sales plans for last n weeks
+    steps:
+      - intent: ask_top_lowest_sales_plan_last_n_weeks
+      - action: action_lowest_plans_sales
+      
+  - rule: respond to top lowest sales plans for last n days
+    steps:
+      - intent: ask_top_lowest_sales_plan_last_n_days
+      - action: action_lowest_plans_sales
+
 
   - rule: respond to top lowest sales plans for a specific year
     steps:
@@ -369,6 +463,21 @@ rules:
       - intent: ask_top_highest_sales_by_country_today
       - action: action_top_highest_sales_by_country
 
+  - rule: Provide highest sales by country for last n hours
+    steps:
+      - intent: ask_top_highest_sales_by_country_last_n_hours
+      - action: action_top_highest_sales_by_country
+      
+  - rule: Provide highest sales by country for last n days
+    steps:
+      - intent: ask_top_highest_sales_by_country_last_n_days
+      - action: action_top_highest_sales_by_country
+
+  - rule: Provide highest sales by country last n weeks
+    steps:
+      - intent: ask_top_highest_sales_by_country_last_n_weeks
+      - action: action_top_highest_sales_by_country
+
   - rule: Provide highest sales by country last day
     steps:
       - intent: ask_top_highest_sales_by_country_last_day
@@ -406,6 +515,27 @@ rules:
     steps:
       - intent: ask_top_lowest_sales_by_country
       - action: action_top_lowest_sales_by_country
+
+
+  - rule: Respond to top lowest sales by country for last n hours
+    steps:
+      - intent: ask_top_lowest_sales_by_country_last_n_hours
+      - action: action_top_lowest_sales_by_country
+
+
+
+  - rule: Respond to top lowest sales by country for last n weeks
+    steps:
+      - intent: ask_top_lowest_sales_by_country_last_n_weeks
+      - action: action_top_lowest_sales_by_country
+
+
+
+  - rule: Respond to top lowest sales by country for last n days
+    steps:
+      - intent: ask_top_lowest_sales_by_country_last_n_days
+      - action: action_top_lowest_sales_by_country
+
 
   - rule: Respond to top lowest sales by country for a specific year
     steps:
@@ -473,6 +603,55 @@ rules:
     steps:
       - intent: ask_compare_country_sales_by_year
       - action: action_compare_countries
+
+  - rule: Compare country sales for a specific month
+    steps:
+      - intent: ask_compare_country_sales_by_months_extracted
+      - action: action_compare_countries
+
+  - rule: Compare country sales for a specific date
+    steps:
+      - intent: ask_compare_country_sales_by_dates
+      - action: action_compare_countries
+
+  - rule: Compare country sales for half year
+    steps:
+      - intent: ask_compare_country_sales_by_half_year
+      - action: action_compare_countries
+
+  - rule: Compare country sales for fortnight
+    steps:
+      - intent: ask_compare_country_sales_by_fortnight
+      - action: action_compare_countries
+
+  - rule: Compare country sales for last day
+    steps:
+      - intent: ask_compare_country_sales_by_last_day
+      - action: action_compare_countries
+
+  - rule: Compare country sales for today
+    steps:
+      - intent: ask_compare_country_sales_by_today
+      - action: action_compare_countries
+
+  - rule: Compare country sales for last n months
+    steps:
+      - intent: ask_compare_country_sales_by_last_n_months
+      - action: action_compare_countries
+
+  - rule: Compare country sales for last n weeks
+    steps:
+      - intent: ask_compare_country_sales_by_last_n_weeks
+      - action: action_compare_countries
+  - rule: Compare country sales for last n hours
+    steps:
+      - intent: ask_compare_country_sales_by_last_n_hours
+      - action: action_compare_countries
+
+  - rule: Compare country sales for last n days
+    steps:
+      - intent: ask_compare_country_sales_by_last_n_days
+      - action: action_compare_countries
 ####################most and least sold plans for country related rules##########################
 
   - rule: respond to most and least sold plans for country
@@ -480,6 +659,24 @@ rules:
       - intent: ask_most_and_least_sold_plans_for_country
       - action: action_most_and_least_sold_plans_for_country
 
+
+  - rule: respond to most and least sold plans for country for last n hours
+    steps:
+      - intent: ask_most_and_least_sold_plans_for_country_last_n_hours
+      - action: action_most_and_least_sold_plans_for_country
+
+
+  - rule: respond to most and least sold plans for country for last n days
+    steps:
+      - intent: ask_most_and_least_sold_plans_for_country_last_n_days
+      - action: action_most_and_least_sold_plans_for_country
+
+
+  - rule: respond to most and least sold plans for country for last n weeks
+    steps:
+      - intent: ask_most_and_least_sold_plans_for_country_last_n_weeks
+      - action: action_most_and_least_sold_plans_for_country
+      
   - rule: respond to most and least sold plans for country in a specific year
     steps:
       - intent: ask_most_and_least_sold_plans_for_country_year
@@ -603,6 +800,32 @@ rules:
   - rule: Get profit margin 
     steps:
       - intent: ask_profit_margin
+      - action: action_get_profit_margin
+
+  - rule: Get profit margin for monthwise
+    steps:
+      - intent: ask_profit_margin_monthwise
+      - action: action_get_profit_margin
+
+  - rule: Get profit margin for yearwise
+    steps:
+      - intent: ask_profit_margin_yearwise
+      - action: action_get_profit_margin
+
+
+  - rule: Get profit margin for last n hours
+    steps:
+      - intent: ask_profit_margin_last_n_hours
+      - action: action_get_profit_margin
+      
+  - rule: Get profit margin last n days
+    steps:
+      - intent: ask_profit_margin_last_n_days
+      - action: action_get_profit_margin
+
+  - rule: Get profit margin last n weeks
+    steps:
+      - intent: ask_profit_margin_last_n_weeks
       - action: action_get_profit_margin
       
   - rule: Get profit margin for today

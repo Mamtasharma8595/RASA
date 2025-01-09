@@ -1,74 +1,12 @@
-import re
-import pandas as pd
+import yaml
 
-def extract_date(text):
-    months = {
-        'january': 1, 'jan': 1, 'february': 2, 'feb': 2, 'march': 3, 'mar': 3,
-        'april': 4, 'apr': 4, 'may': 5, 'june': 6, 'jun': 6, 'july': 7, 'jul': 7,
-        'august': 8, 'aug': 8, 'september': 9, 'sep': 9, 'sept': 9, 'october': 10,
-        'oct': 10, 'november': 11, 'nov': 11, 'december': 12, 'dec': 12
-    }
-    # Remove ordinal suffixes
-    cleaned_message = re.sub(r'(\d+)(st|nd|rd|th)', r'\1', text)
+file_path = 'data/.ipynb_checkpoints/nlu-checkpoint.yml'
 
-    # Refined regex patterns
-    date_patterns = [
-        r'\b\d{4}-\d{2}-\d{2}\b',  # YYYY-MM-DD
-        r'\b\d{1,2}[-/]\d{1,2}[-/]\d{4}\b',  # DD-MM-YYYY or MM-DD-YYYY
-        r'\b\d{1,2} [A-Za-z.]+ \d{4}\b',  # DD Month YYYY (with or without period)
-        r'\b[A-Za-z.]+ \d{1,2},? \d{4}\b',  # Month DD, YYYY (with optional comma)
-        r'\b\d{1,2}-[A-Za-z.]+-\d{4}\b'  # DD-Month-YYYY
-    ]
+# Read the YAML file
+with open(file_path, 'r') as file:
+    data = yaml.safe_load(file)
+    print(data)
 
-    # Combine patterns
-    combined_pattern = r'|'.join(date_patterns)
-    matches = re.findall(combined_pattern, cleaned_message, re.IGNORECASE)
-
-    # Convert matches
-    dates = []
-    for match in matches:
-        match = match.replace(',', '').strip()
-        try:
-            # Direct parse for YYYY-MM-DD
-            if re.match(r'^\d{4}-\d{2}-\d{2}$', match):
-                dates.append(match)
-            # Parse DD-MM-YYYY or MM-DD-YYYY
-            elif re.match(r'^\d{1,2}[-/]\d{1,2}[-/]\d{4}$', match):
-                day, month, year = re.split(r'[-/]', match)
-                dates.append(pd.Timestamp(year=int(year), month=int(month), day=int(day)).strftime('%Y-%m-%d'))
-            # Parse DD Month YYYY
-            elif re.match(r'^\d{1,2} [A-Za-z.]+ \d{4}$', match):
-                day, month_name, year = re.split(r'\s+', match)
-                month = months.get(month_name.lower().rstrip('.'))
-                dates.append(pd.Timestamp(year=int(year), month=month, day=int(day)).strftime('%Y-%m-%d'))
-            # Parse Month DD YYYY
-            elif re.match(r'^[A-Za-z.]+ \d{1,2} \d{4}$', match):
-                month_name, day, year = re.split(r'\s+', match)
-                month = months.get(month_name.lower().rstrip('.'))
-                dates.append(pd.Timestamp(year=int(year), month=month, day=int(day)).strftime('%Y-%m-%d'))
-        except Exception as e:
-            print(f"Error processing date: {match}, Error: {e}")
-
-    return dates if dates else None
-
-
-# Testing with various examples
-test_sentences = [
-    "The event is scheduled for 12th January 2024.",
-    "The release date was 2023-03-15.",
-    "15/03/2024 is the new deadline.",
-    "Please join us on March 15 2024 for the celebration.",
-    "The package was delivered on Jan. 12, 2024.",
-    "Our records show the transaction on 12 January 2024.",
-    "Another meeting is set for December 5th, 2024.",
-    "Her birthday is on 5th December 2024.",
-    "The format DD/MM/YYYY was used for 05/12/2024.",
-    "12-Apr-2023 was marked on the calendar.",
-    "The contract starts from 2023-04-01 and ends on 2023-04-30.",
-    "Expect updates by 31st December 2023."
-]
-
-for sentence in test_sentences:
-    print(f"Input: {sentence}")
-    extracted_dates = extract_date(sentence)
-    print(f"Extracted Dates: {extracted_dates}\n")
+# Modify or write changes back
+with open(file_path, 'w') as file:
+    yaml.dump(data, file)
